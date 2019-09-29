@@ -1,0 +1,19 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: black;
+    color: white;
+}
+
+h1 {
+    padding: 20px;
+    font-size: 32px;
+    text-shadow: 1.5px 1.5px cyan;
+}
+
+.page-header {
+    text-align: center;
+    border-bottom: 1px solid grey;
+}
