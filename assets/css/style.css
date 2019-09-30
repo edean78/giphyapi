@@ -4,16 +4,28 @@
 
 body {
     background: black;
-    color: white;
 }
 
 h1 {
     padding: 20px;
     font-size: 32px;
-    text-shadow: 1.5px 1.5px cyan;
+    text-shadow: 1.5px 1.5px grey;
 }
 
 .page-header {
     text-align: center;
-    border-bottom: 1px solid grey;
+    border-bottom: 1px solid cyan;
+    margin-bottom: 20px;
+    color:cyan;
+}
+
+.btn {
+    background-color: cyan;
+    color: black;
+    margin-bottom: 20px;
+}
+
+.form-control {
+    border: 1.5px solid cyan;
+    background: lightgray;
 }
