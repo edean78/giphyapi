@@ -19,7 +19,7 @@ h1 {
     color:cyan;
 }
 
-.btn {
+#btn-search {
     background-color: cyan;
     color: black;
     margin-bottom: 20px;
@@ -28,4 +28,22 @@ h1 {
 .form-control {
     border: 1.5px solid cyan;
     background: lightgray;
+}
+
+.display-btn {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.wrap-btn {
+    border: 1px solid cyan;
+    margin-left: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background-color: lightgray;
+}
+
+.btn-close {
+    border-left: 1px solid grey;
+    border-radius: 0px;
 }
