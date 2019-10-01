@@ -94,7 +94,16 @@ $(document).ready(function () {
         // Calling the renderButtons function to display the intial buttons
         renderButtons();
 
-        var url = queryURL + "q=" + gif;
+        // Reset input
+        $("#add-gif").val("");
+
+        getGiphy(gif);
+
+    });
+
+    // Create function to retrieve giphy data
+    function getGiphy(value){
+        var url = queryURL + "q=" + value;
 
         $.ajax({
             url: url,
@@ -105,7 +114,7 @@ $(document).ready(function () {
 
             createGiphy(giphys);
         });
-    });
+    }
 
     // Create a function to animate the gif when clicked
     function animateGif(){
@@ -134,19 +143,29 @@ $(document).ready(function () {
 
     // Create function to copy the link below to clipboard
     function copyToClipboard(value){
-        var temp = $("input");
+        var temp = $("<input>");
         $("body").append(temp);
         temp.val(value).select();
-        document.execCommand.command("copy");
+        document.execCommand("copy");
+        temp.remove();
     };
 
     // Create function to copy link
     function copyLink(){
 
-        var link = $(this).attr("data-link")
+        var link = $(this).attr("data-link");
+        console.log(link)
 
         copyToClipboard(link);
     };
+
+    // Create a function to search by button
+    function btnSearch(){
+
+        var btnName = $(this).attr("data-name");
+
+        getGiphy(btnName);
+    }
 
 
     // Create event listener when user clicks the X button
@@ -156,7 +175,10 @@ $(document).ready(function () {
     $(document).on("click", "#giphy-img", animateGif)
 
     // Event listener to copy the link
-    $(document).on("click", "#card-footer", copyLink)
+    $(document).on("click", ".card-footer", copyLink)
+
+    // Event listner to search by button
+    $(document).on("click", ".wrap-btn", btnSearch)
 
 });
 
