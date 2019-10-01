@@ -48,6 +48,10 @@ $(document).ready(function () {
 
     //Create function to render the data received from giphy
     function createGiphy(giphys) {
+
+        // Clear the giphy content
+        $(".giphy").empty();
+
         for (var i = 0; i < giphys.length; i++) {
             var giphy = giphys[i];
 
@@ -55,7 +59,7 @@ $(document).ready(function () {
 
             var giphyDisplay = `
             <div class="giphy-info">
-                <div class="card col-md-4">
+                <div class="card">
                     <i class="far fa-star favorite" data-id="${giphy.id}" data-star="false"></i>
                     <img src="${image.original_still.url}"
                     data-still="${image.original_still.url}"
@@ -66,7 +70,7 @@ $(document).ready(function () {
                             <h5 class="card-rating">Rating: ${giphy.rating}</h5>
                             <h5 class="card-posted">Posted: ${giphy.import_datetime}</h5>
                         </div>
-                    <div class="footer" data-link="${giphy.embed_url}">
+                    <div class="card-footer" data-link="${giphy.embed_url}">
                         <p>Copy Link <i class="fa fa-link"></i></p>
                     </div>    
                 </div>
@@ -128,12 +132,31 @@ $(document).ready(function () {
         renderButtons();
     };
 
+    // Create function to copy the link below to clipboard
+    function copyToClipboard(value){
+        var temp = $("input");
+        $("body").append(temp);
+        temp.val(value).select();
+        document.execCommand.command("copy");
+    };
+
+    // Create function to copy link
+    function copyLink(){
+
+        var link = $(this).attr("data-link")
+
+        copyToClipboard(link);
+    };
+
 
     // Create event listener when user clicks the X button
     $(document).on("click", ".btn-close", deleteButtons)
 
     // Event listener to animate gif when clicked
     $(document).on("click", "#giphy-img", animateGif)
+
+    // Event listener to copy the link
+    $(document).on("click", "#card-footer", copyLink)
 
 });
 
