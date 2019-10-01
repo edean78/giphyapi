@@ -68,3 +68,11 @@ h1 {
     margin-left: 5px;
 }
 
+.card {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: lightgray;
+    border: 1px solid cyan;
+    border-radius: 5px;
+    margin: 20px 10px;
+}
