@@ -47,3 +47,7 @@ h1 {
     border-left: 1px solid grey;
     border-radius: 0px;
 }
+
+.form-check-label {
+    color: cyan;
+}
