@@ -106,3 +106,7 @@ h1 {
 .card-footer p {
     text-align: center;
 }
+
+.active {
+    background-color: cyan;
+}

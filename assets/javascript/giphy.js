@@ -7,12 +7,12 @@ $(document).ready(function () {
     var queryURL = "http://api.giphy.com/v1/gifs/search?api_key=wlls0MTP5W9mbTuI6ZqNEJUScOOmKLBR&"
 
 
-    // Create function to load buttons from local storage
-    function loadBtns() {
-        var btnList = JSON.parse(localStorage.getItem("buttons"));
+    // // Create function to load buttons from local storage
+    // function loadBtns() {
+    //     var btnList = JSON.parse(localStorage.getItem("buttons"));
 
-        gifs = btnList;
-    }
+    //     gifs = btnList;
+    // }
 
     // Render the buttons to the page
     function renderButtons() {
@@ -20,13 +20,12 @@ $(document).ready(function () {
         // Clear the div of any buttons
         $(".display-btn").empty();
 
-
         // Interate over the array
         for (var i = 0; i < gifs.length; i++) {
 
             // Create the buttons for category searched by user
             var buttons = `
-            <div class="wrap-btn"
+            <div class="wrap-btn">
             <button class="btn btn-gifs" data-name="${gifs[i]}">${gifs[i]}</button>
             <button class="btn btn-close far fa-times-circle" data-name="${gifs[i]}" data-num="${i}"></button>
             </div>
@@ -39,12 +38,6 @@ $(document).ready(function () {
         // Store User inputs to local storage
         localStorage.setItem("buttons", JSON.stringify(gifs));
     };
-
-    // load buttons stored in local storage
-    loadBtns();
-
-    // Calling the renderButtons function to display the intial buttons
-    renderButtons();
 
     //Create function to render the data received from giphy
     function createGiphy(giphys) {
@@ -167,6 +160,11 @@ $(document).ready(function () {
         getGiphy(btnName);
     }
 
+    // // load buttons stored in local storage
+    // loadBtns();
+
+    // Calling the renderButtons function to display the intial buttons
+    renderButtons();
 
     // Create event listener when user clicks the X button
     $(document).on("click", ".btn-close", deleteButtons)
@@ -178,7 +176,7 @@ $(document).ready(function () {
     $(document).on("click", ".card-footer", copyLink)
 
     // Event listner to search by button
-    $(document).on("click", ".wrap-btn", btnSearch)
+    $(document).on("click", ".btn-gifs", btnSearch)
 
 });
 
