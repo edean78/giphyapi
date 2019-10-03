@@ -4,7 +4,7 @@ $(document).ready(function () {
     // Create global varibles
     // Array of selected gifs
     var gifs = [];
-    var queryURL = "http://api.giphy.com/v1/gifs/search?api_key=wlls0MTP5W9mbTuI6ZqNEJUScOOmKLBR&"
+    var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=wlls0MTP5W9mbTuI6ZqNEJUScOOmKLBR&"
 
 
     // // Create function to load buttons from local storage
